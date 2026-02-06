@@ -145,22 +145,22 @@ Gitlet 是一个简化版的版本控制系统，复刻了 Git 的核心功能�
 
 ## 设计与实现要点
 - 持久化存储：通过在.gitlet目录下序列化对象来存储，文件结构如下，具体描述可见设计文档
-````
-.gitlet/
-├── HEAD
-├── objects/
-│   ├── commits/
-│   └── blobs/
-├── refs/
-│   ├── heads/
-│   └── remotes/
-│       ├── (remote1)
-│       └── ...
-├── staging/
-│   ├── add/
-│   └── remove/
-└── remote/
-````
+    ````
+    .gitlet/
+    ├── HEAD
+    ├── objects/
+    │   ├── commits/
+    │   └── blobs/
+    ├── refs/
+    │   ├── heads/
+    │   └── remotes/
+    │       ├── (remote1)
+    │       └── ...
+    ├── staging/
+    │   ├── add/
+    │   └── remove/
+    └── remote/
+    ````
 - 对象模型：维护Commit对象来表示提交节点、Blob对象来表示文件内容快照。
 - 分支结构：用非扁平化的存储结构来区分本地分支与远程分支，用引用映射保存HEAD信息。
 - SHA-1 Hash：对于Commit和Blob对象，采用 SHA-1 哈希值作为其唯一标识，从而实现去重和快速查找。
